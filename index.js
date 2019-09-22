@@ -36,9 +36,9 @@ module.exports = postcss.plugin('postcss-extract-media-query', opts => {
         // pointer to last item in array
         const lastAtRule = atRules[key][atRules[key].length - 1];
 
-        // append all rules
-        atRule.walkRules(rule => {
-            lastAtRule.append(rule);
+        // append all nodes
+        atRule.each(node => {
+            lastAtRule.append(node);
         });
 
         // remove atRule from original chunk
